@@ -1,0 +1,7 @@
+/node_modules/
+/package.json
+/sitemap.json
+/project.config.json
+/package-lock.json
+/miniprogram_npm/
+/.idea/
