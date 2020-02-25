@@ -9,7 +9,7 @@
 const pormisic = function (func) {
     return function (params) {
         return new Promise((resolve, reject) => {
-            Object.assign(params, {
+            const args = Object.assign(params, {
                 success: (res) => {
                   resolve(res)
                 },
@@ -17,7 +17,7 @@ const pormisic = function (func) {
                     reject(error)
                 }
             })
-            func(params)
+            func(args)
         })
     }
 }

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/home/home",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,5 +12,7 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
+    "l-gird": "/miniprogram_npm/lin-ui/grid/index",
+    "l-gird-item": "/miniprogram_npm/lin-ui/grid-item/index"
   }
 }

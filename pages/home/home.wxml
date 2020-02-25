@@ -1,0 +1,9 @@
+<swiper class="swiper" indicator-dots indicator-active-color="#157658" autoplay circular>
+    <block wx:for="{{bannerB.items}}" wx:key="{{item.id}}">
+        <swiper-item>
+            <image class="swiper" src="{{item.img}}"></image>
+        </swiper-item>
+    </block>
+</swiper>
+<m-category category="{{category}}"></m-category>
+<image class="activity" src="{{activity.entrance_img}}"></image>

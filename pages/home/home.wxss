@@ -1,0 +1,9 @@
+.swiper {
+    width: 100%;
+    height: 360rpx;
+}
+
+.activity {
+    margin-top: 20rpx;
+    width: 100%;
+}
