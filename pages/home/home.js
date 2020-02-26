@@ -2,6 +2,7 @@
 import {Banner} from "../../model/banner";
 import {Category} from "../../model/category";
 import {Activity} from "../../model/activity";
+import {Theme} from "../../model/theme";
 
 Page({
 
@@ -22,13 +23,17 @@ Page({
   },
 
   async initData() {
+    const theme = new Theme()
+    await theme.getThemes()
+    const locationA = theme.getLocationA()
     const bannerB = await Banner.getLocationB();
     const category = await Category.getGridCategory();
     const activity = await Activity.getLocationD();
     this.setData({
       bannerB,
       category,
-      activity
+      activity,
+      locationA
     })
   },
 

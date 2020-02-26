@@ -3,20 +3,32 @@
  * @author: alin
  * @date: 2020-02-25 09:27
  * @description：theme.js
- * @update: 2020-02-25 09:27
+ * @update: 2020-02-26 13:57
  */
-import {promisic} from "../miniprogram_npm/lin-ui/utils/util";
-import {config} from "../config/config";
 import {Http} from "../utils/http";
 
 class Theme {
-    static async getLocationA() {
-            return await Http.request({
-            url: '/coupon/whole_store',
+    static locationA = 't-1'
+    static locationE = 't-2'
+
+    themes = []
+
+    async getThemes() {
+        this.themes = await Http.request({
+            url: '/theme/by/names',
             data: {
-                name: 't-1'
+                names: `${Theme.locationA},${Theme.locationE}`
             }
         })
+    }
+
+    getLocationA() {
+        // return this.themes.find(theme => {return this.themes.find(theme => theme.name === Theme.locationA);});
+        return this.themes.find(theme => theme.name === Theme.locationA);
+    }
+
+    getLocationE () {
+        return this.themes.find(theme => theme.name === Theme.locationE)
     }
 }
 
