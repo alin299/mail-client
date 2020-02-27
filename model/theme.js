@@ -3,7 +3,7 @@
  * @author: alin
  * @date: 2020-02-25 09:27
  * @description：theme.js
- * @update: 2020-02-26 13:57
+ * @update: 2020-02-27 23:35
  */
 import {Http} from "../utils/http";
 
@@ -29,6 +29,16 @@ class Theme {
 
     getLocationE () {
         return this.themes.find(theme => theme.name === Theme.locationE)
+    }
+
+    static async getLocationESpu() {
+        return await this.getThemeSpuByName(this.locationE)
+    }
+
+    static async getThemeSpuByName(name) {
+        return await Http.request({
+            url: `/theme/name/${name}/with_spu`
+        })
     }
 }
 
