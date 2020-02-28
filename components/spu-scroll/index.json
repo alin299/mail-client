@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "l-price" : "/miniprogram_npm/lin-ui/price/index"
+  }
+}

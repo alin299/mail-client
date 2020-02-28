@@ -1,0 +1,31 @@
+.container {
+    padding: 42rpx 0 34rpx 24rpx;
+}
+
+.title-img {
+    width: 694rpx;
+    height: 90rpx;
+}
+
+.scroll-view {
+    margin-top: 28rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.spu-item {
+    margin-right: 60rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spu-item .img{
+    width: 160rpx;
+    height: 160rpx;
+}
