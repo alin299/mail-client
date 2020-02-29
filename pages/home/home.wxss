@@ -7,3 +7,18 @@
     margin-top: 20rpx;
     width: 100%;
 }
+
+.quality {
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    width: 100%;
+    height: 880rpx;
+    display: flex;
+}
+
+.fashion {
+    margin-top: 20rpx;
+    width: 100%;
+    height: 840rpx;
+    display: flex;
+}

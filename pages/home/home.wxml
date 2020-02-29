@@ -7,3 +7,13 @@
 </swiper>
 <m-category category="{{category}}"></m-category>
 <image class="activity" src="{{activity.entrance_img}}"></image>
+<m-spu-scroll spu-list="{{themeESpuList}}"
+              theme="{{locationE}}"
+              wx:if="{{locationE.online}}">
+</m-spu-scroll>
+<image src="{{themeF.entrance_img}}" class="quality"></image>
+
+<m-host-list banner="{{bannerG}}"></m-host-list>
+
+<image src="{{themeH.entrance_img}}" class="fashion"></image>
+
