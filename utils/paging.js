@@ -11,9 +11,11 @@ class Paging {
     count
     start
     locker
+    url
 
-    constructor(url, count=10, start=0) {
-        this.url = url
+    constructor(req, count=10, start=0) {
+        this.req = req
+        this.url = req.url
         this.count = count
         this.start = start
     }
@@ -22,7 +24,23 @@ class Paging {
         if (!this._getLocker()) {
             return
         }
+        this._getCurrentReq()
+    }
 
+    async _getData() {
+        return await Http.request(this._getCurrentReq())
+    }
+
+    _getCurrentReq () {
+        let url = this.url
+        const params = `start=${this.start}&conunt=${this.count}`
+        if (url.indexOf('?')!==-1) {
+            url += '&' + params
+        } else {
+            url += '?' + params
+        }
+        this.req.url = url
+        return this.req
     }
 
     _getLocker () {
