@@ -5,6 +5,8 @@
  * @description：paging.js
  * @update: 2020-03-01 23:02
  */
+import {Http} from "./http";
+
 class Paging {
 
     url
@@ -18,17 +20,46 @@ class Paging {
         this.url = req.url
         this.count = count
         this.start = start
+        this.accumulator = []
     }
 
-    next () {
+    async _actualGetData() {
+        const req = this._getCurrentReq()
+        let result = await Http.request(req)
+        if (!result) {
+            return null
+        }
+        if (result.total === 0) {
+            return {
+                empty: true,
+                items: [],
+                hasMoreData: false,
+                accumulator: []
+            }
+        }
+        this.hasMoreData = result.page < result.total_page-1
+        this.accumulator = (result.page==1 ? result.items : this.accumulator.concat(result.items))
+        if (this.hasMoreData) {
+            this.start += result.count
+        }
+        return {
+            empty: false,
+            items: result.items,
+            hasMoreData: this.hasMoreData,
+            accumulator: this.accumulator
+        }
+    }
+
+
+    async next() {
+        if (!this.hasMoreData) {
+            return
+        }
         if (!this._getLocker()) {
             return
         }
-        this._getCurrentReq()
-    }
-
-    async _getData() {
-        return await Http.request(this._getCurrentReq())
+        const data = await this._actualGetData()
+        this._releaseLocker()
     }
 
     _getCurrentReq () {
@@ -54,4 +85,8 @@ class Paging {
     _releaseLocker () {
         this.locker = false
     }
+}
+
+export {
+    Paging
 }
