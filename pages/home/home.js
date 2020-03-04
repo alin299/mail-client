@@ -3,6 +3,7 @@ import {Banner} from "../../model/banner";
 import {Category} from "../../model/category";
 import {Activity} from "../../model/activity";
 import {Theme} from "../../model/theme";
+import {SpuPaging} from "../../model/spu-paging";
 
 Page({
 
@@ -21,6 +22,8 @@ Page({
    */
   onLoad: async function (options) {
     this.initData();
+    this.initBottomSpuList()
+
   },
 
   async initData() {
@@ -39,6 +42,8 @@ Page({
     }
     const category = await Category.getGridCategory();
     const activity = await Activity.getLocationD();
+
+
     this.setData({
       bannerB,
       bannerG,
@@ -90,8 +95,17 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: async function () {
+    const data = await this.data.supPaging.next();
+    if (!data) {
+      return
+    }
+    wx.lin.renderWaterFlow(data.items)
+    if (!data.hasMoreData) {
+      this.setData({
+        loadingType: "end"
+      });
+    }
   },
 
   /**
@@ -99,5 +113,15 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  async initBottomSpuList() {
+    const paging = SpuPaging.getLatestPaging();
+    this.data.supPaging = paging;
+    const data = await paging.next()
+    if (!data) {
+      return;
+    }
+    wx.lin.renderWaterFlow(data.items)
+  },
 })

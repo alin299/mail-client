@@ -1,0 +1,39 @@
+/**
+ * @name: price
+ * @author: alin
+ * @date: 2020-03-04 21:04
+ * @description：price
+ * @update: 2020-03-04 21:04
+ */
+function mainPrice(price, discountPrice) {
+    if (!discountPrice) {
+        return {
+            price: price,
+            display: true
+        };
+    } else {
+        return {
+            price: discountPrice,
+            display: true
+        }
+    }
+}
+
+function slashedPrice(price, discountPrice) {
+    if (discountPrice) {
+        return {
+            price: price,
+            display: true
+        };
+    } else {
+        return {
+            display: false,
+            price: null
+        };
+    }
+}
+// wxs只能用es5
+module.exports = {
+    mainPrice: mainPrice,
+    slashedPrice: slashedPrice
+}

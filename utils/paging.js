@@ -3,7 +3,7 @@
  * @author: alin
  * @date: 2020-03-01 23:02
  * @description：paging.js
- * @update: 2020-03-01 23:02
+ * @update: 2020-03-04 20:21
  */
 import {Http} from "./http";
 
@@ -14,6 +14,7 @@ class Paging {
     start
     locker
     url
+    hasMoreData =true
 
     constructor(req, count=10, start=0) {
         this.req = req
@@ -60,11 +61,12 @@ class Paging {
         }
         const data = await this._actualGetData()
         this._releaseLocker()
+        return data
     }
 
     _getCurrentReq () {
         let url = this.url
-        const params = `start=${this.start}&conunt=${this.count}`
+        const params = `start=${this.start}&count=${this.count}`
         if (url.indexOf('?')!==-1) {
             url += '&' + params
         } else {

@@ -17,3 +17,7 @@
 
 <image src="{{themeH.entrance_img}}" class="fashion"></image>
 
+<view class="spu-bottom">
+    <l-water-flow generic:l-water-flow-item="m-spu-preview"></l-water-flow>
+</view>
+

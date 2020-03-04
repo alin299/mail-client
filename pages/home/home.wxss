@@ -22,3 +22,12 @@
     height: 840rpx;
     display: flex;
 }
+
+.spu-bottom {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30rpx;
+    background-color: #ffffff;
+}
