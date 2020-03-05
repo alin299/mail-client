@@ -1,23 +1,27 @@
-<swiper class="swiper" indicator-dots indicator-active-color="#157658" autoplay circular>
-    <block wx:for="{{bannerB.items}}" wx:key="{{item.id}}">
-        <swiper-item>
-            <image class="swiper" src="{{item.img}}"></image>
-        </swiper-item>
-    </block>
-</swiper>
-<m-category category="{{category}}"></m-category>
-<image class="activity" src="{{activity.entrance_img}}"></image>
-<m-spu-scroll spu-list="{{themeESpuList}}"
-              theme="{{locationE}}"
-              wx:if="{{locationE.online}}">
-</m-spu-scroll>
-<image src="{{themeF.entrance_img}}" class="quality"></image>
+<l-loadmore show="{{true}}" type="{{loadingType}}">
+    <view slot="content">
+        <swiper class="swiper" indicator-dots indicator-active-color="#157658" autoplay circular>
+            <block wx:for="{{bannerB.items}}" wx:key="{{item.id}}">
+                <swiper-item>
+                    <image class="swiper" src="{{item.img}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <m-category category="{{category}}"></m-category>
+        <image class="activity" src="{{activity.entrance_img}}"></image>
+        <m-spu-scroll spu-list="{{themeESpuList}}"
+                      theme="{{locationE}}"
+                      wx:if="{{locationE.online}}">
+        </m-spu-scroll>
+        <image src="{{themeF.entrance_img}}" class="quality"></image>
 
-<m-host-list banner="{{bannerG}}"></m-host-list>
+        <m-host-list banner="{{bannerG}}"></m-host-list>
 
-<image src="{{themeH.entrance_img}}" class="fashion"></image>
+        <image src="{{themeH.entrance_img}}" class="fashion"></image>
 
-<view class="spu-bottom">
-    <l-water-flow generic:l-water-flow-item="m-spu-preview"></l-water-flow>
-</view>
+        <view class="spu-bottom">
+            <l-water-flow generic:l-water-flow-item="m-spu-preview"></l-water-flow>
+        </view>
+    </view>
+</l-loadmore>
 

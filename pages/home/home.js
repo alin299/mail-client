@@ -14,7 +14,8 @@ Page({
     bannerB: null,
     category: [],
     activity: null,
-    themeESpuList: []
+    themeESpuList: [],
+    loadingType: "loading"
   },
 
   /**
