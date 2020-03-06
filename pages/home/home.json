@@ -2,6 +2,6 @@
   "usingComponents": {
     "m-category": "/components/category-grid/index",
     "m-spu-scroll": "/components/spu-scroll/index",
-    "m-host-list": "/components/hot-list/index"
+    "m-hot-list": "/components/hot-list/index"
   }
 }

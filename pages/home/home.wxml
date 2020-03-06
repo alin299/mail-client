@@ -10,12 +10,12 @@
         <m-category category="{{category}}"></m-category>
         <image class="activity" src="{{activity.entrance_img}}"></image>
         <m-spu-scroll spu-list="{{themeESpuList}}"
-                      theme="{{locationE}}"
-                      wx:if="{{locationE.online}}">
+                      theme="{{themeE}}"
+                      wx:if="{{themeE.online}}">
         </m-spu-scroll>
         <image src="{{themeF.entrance_img}}" class="quality"></image>
 
-        <m-host-list banner="{{bannerG}}"></m-host-list>
+        <m-hot-list banner="{{bannerG}}"></m-hot-list>
 
         <image src="{{themeH.entrance_img}}" class="fashion"></image>
 

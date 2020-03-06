@@ -1,4 +1,5 @@
 <wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="s"></wxs>
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
 <view class="container">
     <image class="title-img" src="http://i2.sleeve.7yue.pro/m3.png"></image>
     <scroll-view scroll-x="true" class="scroll-view">
@@ -6,8 +7,8 @@
             <block wx:for="{{spuList}}">
                 <view class="spu-item">
                     <image class="img" src="{{item.img}}"></image>
-                    <l-price autofix unit="￥" value="{{item.price}}"></l-price>
-                    <text>{{item.title.length>8?s.substring(item.title,0,7)+'...':item.title}}</text>
+                    <l-price autofix unit="￥" value="{{p.mainPrice(item.price,item.discount_price).price}}"></l-price>
+                    <text class="spu-text">{{item.title.length>8?s.substring(item.title,0,7)+'...':item.title}}</text>
                 </view>
             </block>
         </view>

@@ -29,3 +29,8 @@
     width: 160rpx;
     height: 160rpx;
 }
+
+.spu-text{
+    font-size: 20rpx;
+    color: #666666;
+}
