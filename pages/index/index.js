@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 import {config} from "../../config/config";
-import {Theme} from "../../model/theme";
+import {Theme} from "../../models/theme";
 
 const app = getApp()
 
